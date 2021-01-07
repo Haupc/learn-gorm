@@ -1,6 +1,8 @@
 package dbConfig
 
 import (
+	"rap/utils"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -26,11 +28,11 @@ type DBConfig struct {
 
 func InitConnection() {
 	db, err := gorm.Open(mysql.Open(DbURL(BuildDBConfig())), &gorm.Config{
-		Logger: logger.Default.LogMode(logger.Info),
+		Logger:         logger.Default.LogMode(logger.Info),
+		NamingStrategy: utils.GetNamingStrategy(),
 	})
 	if err != nil {
 		log.Fatal("Khong ket noi duoc den DB thi chay lam d gi")
-		return
 	}
 	DB = db
 }
