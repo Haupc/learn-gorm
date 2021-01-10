@@ -1,7 +1,7 @@
 {
-    "host": "remotemysql.com",
+    "host": "x",
     "port": 3306,
-    "user": "ySmdjxnAyh",
-    "password": "zxaAty5oSC",
-    "database": "ySmdjxnAyh"
+    "user": "root",
+    "password": "x",
+    "database": "x"
 }
