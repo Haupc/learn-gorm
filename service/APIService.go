@@ -5,7 +5,7 @@ import (
 	"rap/repository"
 )
 
-var baseAPIStatement = "insert into auth.API (API , `method`, zone_id, `status`) values ('%s', '%s', %d, %d);\n"
+var baseAPIStatement = "insert into API (API , `method`, zone_id, `status`) values ('%s', '%s', %d, %d);\n"
 
 // GenAPIInsertStatement 2 params
 // zoneID : current zone id

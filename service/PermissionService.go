@@ -5,7 +5,7 @@ import (
 	"rap/repository"
 )
 
-var basePermissionStatement = "insert into auth.PERMISSION (`NAME` , zone_id, `status`) values ('%s', %d, %d);\n"
+var basePermissionStatement = "insert into PERMISSION (`NAME` , zone_id, `status`) values ('%s', %d, %d);\n"
 
 // GenPermissionInsertStatement 2 params
 // zoneID : current zone id

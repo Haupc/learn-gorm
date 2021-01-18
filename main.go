@@ -34,10 +34,10 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println(`exported to insert.sql`)
+		fmt.Println("\n\t\texported to insert.sql")
 	} else {
 		fmt.Println(service.GetStatement())
-		fmt.Println(`DONE`)
+		fmt.Println("\tDONE")
 	}
 
 }
