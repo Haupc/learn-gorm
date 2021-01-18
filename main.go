@@ -2,8 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
 	"rap/dbConfig"
 	"rap/service"
+	"rap/utils"
 )
 
 func String(model interface{}) string {
@@ -16,7 +20,14 @@ func main() {
 	service.GenRoleInsertStatement(35, 36)
 	service.GenPermissionInsertStatement(35, 36)
 	service.GenAPIInsertStatement(35, 36)
-	// fmt.Println(service.GetStatement())
-	// fmt.Println(String(repository.Permissions[2]))
-
+	service.GenRolePermissionStatement()
+	service.GenAPIPermissionStatement()
+	statement := service.GetStatement()
+	if utils.WriteFile {
+		err := ioutil.WriteFile("insert.sql", []byte(statement), 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+	fmt.Println(service.GetStatement())
 }

@@ -1,9 +1,9 @@
 package repository
 
 import (
+	"log"
 	"rap/dbConfig"
 	"rap/models"
-	"rap/utils"
 )
 
 // Permissions : singleton
@@ -13,7 +13,7 @@ var Permissions []models.Permission
 func GetPermissons(zoneID int) []models.Permission {
 	if Permissions == nil {
 		if err := dbConfig.DB.Preload("Roles").Preload("APIS").Where("zone_id = ?", zoneID).Find(&Permissions).Error; err != nil {
-			utils.Check(err)
+			log.Fatal(err)
 		}
 	}
 	return Permissions

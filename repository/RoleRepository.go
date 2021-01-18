@@ -1,9 +1,9 @@
 package repository
 
 import (
+	"log"
 	"rap/dbConfig"
 	"rap/models"
-	"rap/utils"
 )
 
 // Roles singleton
@@ -13,7 +13,7 @@ var Roles []models.Role
 func GetRoles(zoneID int) []models.Role {
 	if Roles == nil {
 		if err := dbConfig.DB.Where("zone_id = ?", zoneID).Find(&Roles).Error; err != nil {
-			utils.Check(err)
+			log.Fatal(err)
 		}
 	}
 	return Roles

@@ -1,9 +1,9 @@
 package repository
 
 import (
+	"log"
 	"rap/dbConfig"
 	"rap/models"
-	"rap/utils"
 )
 
 // APIS singleton
@@ -13,7 +13,7 @@ var APIS []models.API
 func GetAPIS(zoneID int) []models.API {
 	if APIS == nil {
 		if err := dbConfig.DB.Where("zone_id = ?", zoneID).Find(&APIS).Error; err != nil {
-			utils.Check(err)
+			log.Fatal(err)
 		}
 	}
 	return APIS
