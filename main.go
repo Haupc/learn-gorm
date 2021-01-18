@@ -14,8 +14,14 @@ func String(model interface{}) string {
 	raw, _ := json.Marshal(model)
 	return string(raw)
 }
-
+func makeColor() {
+	fmt.Println(`
+	Author: HauPC
+	Warning: play with database is dangerous
+`)
+}
 func main() {
+	makeColor()
 	dbConfig.InitConnection()
 	service.GenRoleInsertStatement(35, 36)
 	service.GenPermissionInsertStatement(35, 36)
@@ -28,6 +34,10 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		fmt.Println(`exported to insert.sql`)
+	} else {
+		fmt.Println(service.GetStatement())
+		fmt.Println(`DONE`)
 	}
-	fmt.Println(service.GetStatement())
+
 }
