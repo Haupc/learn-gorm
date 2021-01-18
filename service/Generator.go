@@ -11,3 +11,7 @@ func GetStatement() string {
 func GenRolePermissionStatement() {
 
 }
+
+func GenAPIPermissionStatement() {
+
+}

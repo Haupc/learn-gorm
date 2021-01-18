@@ -18,3 +18,16 @@ type NamingStrategy struct {
 func (ns NamingStrategy) JoinTableName(str string) string {
 	return str
 }
+
+func (ns NamingStrategy) ColumnName(table, clolumn string) string {
+	str := clolumn
+	switch str {
+	case "APIID":
+		return "API_ID"
+	case "RoleID":
+		return "ROLE_ID"
+	case "PermissionID":
+		return "PERMISSION_ID"
+	}
+	return str
+}
