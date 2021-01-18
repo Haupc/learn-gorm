@@ -9,8 +9,8 @@ import (
 
 // Statement : generated statment
 var statement = ""
-var rpStatement = "insert into ROLE_PERMISSION rp (ROLE_ID, PERMISSION_ID) values (select r.ID from SE_ROLE r where r.`CODE` = '%s'), (select p.ID from PERMISSION p where p.`NAME` = '%s');\n"
-var apStatement = "insert into API_PERMISSION ap (API_ID, PERMISSION_ID) values (select a.ID from API where (a.API = '%s' and a.METHOD = '%s'),  (select p.ID from PERMISSION p where p.`NAME` = '%s');\n"
+var rpStatement = "insert into ROLE_PERMISSION rp (ROLE_ID, PERMISSION_ID) values ((select r.ID from SE_ROLE r where r.`CODE` = '%s'), (select p.ID from PERMISSION p where p.`NAME` = '%s'));\n"
+var apStatement = "insert into API_PERMISSION ap (API_ID, PERMISSION_ID) values ((select a.ID from API where (a.API = '%s' and a.METHOD = '%s'),  (select p.ID from PERMISSION p where p.`NAME` = '%s'));\n"
 
 // GetStatement return statement
 func GetStatement() string {
