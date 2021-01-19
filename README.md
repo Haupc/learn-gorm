@@ -1,8 +1,2 @@
 # learn-gorm
-# sử database tại file `db.sql` để lấy dữ liệu.
-```sql
-create database testdb;
-use testdb;
--- paste db.sql here
-```
-
+### project này dùng để học cách customize naming convention của gorm dùng trong trường hợp database đặt không theo convention
